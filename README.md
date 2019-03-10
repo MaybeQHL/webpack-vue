@@ -12,7 +12,6 @@ yarn run build
 node v10.15.1
 
 yarn v1.13.0
-t
 
 
 
