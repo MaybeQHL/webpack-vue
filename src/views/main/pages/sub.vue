@@ -14,9 +14,22 @@ export default {
 
   computed: {},
 
-  mounted () { },
+  mounted () {
+    this.getArticleDetail()
+  },
 
-  methods: {}
+  methods: {
+    async  getArticleDetail () {
+      try {
+        let result = await this.$api.article.articleDetail(1, {
+          api: 123
+        });
+        console.log(result)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+  }
 }
 
 </script>

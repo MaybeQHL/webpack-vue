@@ -8,6 +8,7 @@
       <p>author:maybe</p>
       <p>QQ:1013480204</p>
     </section>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -22,9 +23,13 @@ export default {
 
   computed: {},
 
-  mounted () { },
+  mounted () {
 
-  methods: {}
+  },
+
+  methods: {
+
+  }
 }
 
 </script>

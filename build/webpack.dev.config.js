@@ -16,13 +16,24 @@ module.exports = webpackMerge(webpackBaseConfig, {
     // contentBase: path.join(__dirname, "dist"),
     port: 58773,
     //  host:'127.0.0.1'  0.0.0.0 可以让外网进行访问 默认localhost 
+    proxy: {
+      '/test/*': {
+        target: 'https://xxx.com',
+        changeOrigin: true, // 开启跨域
+        secure: false, // HTTPS上运行的具有无效证书
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    }
   },
   devtool: 'cheap-module-eval-source-map', // devtool由webpack直接提高，将打包后的文件中的错误映射到最初对应的文件中，便于调试
   plugins: [
     // 在webpack.config.js下引入html-webpack-plugin
-    new HTMLWebpackPlugin({ // 创建 .html 并自动引入打包后的文件
-      template: './public/index.html', // 参照最初创建的 .html 来生成 .html
-      inject: true
-    })
+    // new HTMLWebpackPlugin({ // 创建 .html 并自动引入打包后的文件
+    //   template: './public/index.html', // 参照最初创建的 .html 来生成 .html
+    //   inject: true,
+    //   title: 'webpack-vue-dev'
+    // })
   ]
 })

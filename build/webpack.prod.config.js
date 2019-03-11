@@ -18,10 +18,11 @@ module.exports = webpackMerge(webpackBaseConfig, {
     // 打包之前使用这个插件尝试清除dist目录下的文件
     new cleanWebpackPlugin(),
     // 在webpack.config.js下引入html-webpack-plugin
-    new HTMLWebpackPlugin({ // 创建 .html 并自动引入打包后的文件
-      template: './public/index.html', // 参照最初创建的 .html 来生成 .html
-      inject: true,
-      favicon: path.resolve(__dirname, '../public/favicon.ico')
-    })
+    // new HTMLWebpackPlugin({ // 创建 .html 并自动引入打包后的文件
+    //   template: './public/index.html', // 参照最初创建的 .html 来生成 .html
+    //   inject: true,
+    //   favicon: path.resolve(__dirname, '../public/favicon.ico'),
+    //   title: 'webpack-vue'
+    // })
   ]
 })

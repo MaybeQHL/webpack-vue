@@ -3,17 +3,19 @@
 // 通过 Vue.extend() 创建的组件构造器，
 // 或者，只是一个组件配置对象。
 // 我们晚点再讨论嵌套路由。
- import main from  '@/views/main/main.vue'
+import main from '@/views/main/main.vue'
 const routes = [
-  {path:'/', redirect: { name: 'sub' }}, // 重定向路由
-  { path: '/login',name:'login', component: () => import(/* webpackChunkName: "group-foo" */ '@/views/login/login.vue') },
-  { path: '/main', 
-    name:'main',
-    component:main,
-    children:[{
-    path: 'sub',
-    name:'sub',
-    component: () => import(/* webpackChunkName: "group-foo" */ '@/views/main/pages/sub.vue')
-  }] }
+  { path: '/', redirect: { name: 'sub' } }, // 重定向路由
+  { path: '/login', name: 'login', component: () => import(/* webpackChunkName: "group-foo" */ '@/views/login/login.vue') },
+  {
+    path: '/main',
+    name: 'main',
+    component: main,
+    children: [{
+      path: 'sub',
+      name: 'sub',
+      component: () => import(/* webpackChunkName: "group-foo" */ '@/views/main/pages/sub.vue')
+    }]
+  }
 ]
 export default routes

@@ -6,17 +6,20 @@ Vue.use(Vuex)
 const debug = process.env.NODE_ENV !== 'production'
 
 export default new Vuex.Store({
-  state:{
-   stateFirst:'this is first state'
+  state: {
+    stateFirst: 'this is first state',
+    network: true
   },
-  getters:{
+  getters: {
 
   },
-  actions:{
+  actions: {
 
   },
-  mutations:{
-
+  mutations: {
+    changeNetwork (state, flag) {
+      state.network = flag;
+    }
   },
   modules: {
   },

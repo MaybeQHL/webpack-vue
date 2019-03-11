@@ -43,8 +43,8 @@ module.exports = {
             loader: 'url-loader',
             options: { // 配置参数
               limit: 50000, // 比较标准，小于标准的图片转换为 base64 代码, 1000=1kb
-              outputPath:'images'
-                        
+              outputPath: 'images'
+
             }
           }
         ]
@@ -71,7 +71,9 @@ module.exports = {
     // 在webpack.config.js下引入html-webpack-plugin
     new HTMLWebpackPlugin({ // 创建 .html 并自动引入打包后的文件
       template: './public/index.html', // 参照最初创建的 .html 来生成 .html
-      inject: true
+      inject: true,
+      favicon: path.resolve(__dirname, '../public/favicon.ico'),
+      title: 'webpack-vue'
     })
   ]
 }
