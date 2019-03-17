@@ -2,6 +2,7 @@
 <template>
   <div>
     <ul>
+      <li>自定义组件 v-model </li>
       <li>{{'里面的值：'+ msg}}</li>
       <button @click="fn2">里面改变外面</button>
     </ul>

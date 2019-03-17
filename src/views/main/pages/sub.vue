@@ -1,15 +1,26 @@
 <!--  -->
 <template>
-  <div>sub</div>
+  <div>sub
+    <vm-demo v-model="testV"></vm-demo>
+    外面的值 {{testV | myFilter}}
+    <!-- <jsx-example></jsx-example> -->
+    <p>render 测试</p>
+    <render-test></render-test>
+  </div>
 </template>
 
 <script>
+// Vue.component('jsx-example', {
+//   render (h) { // <-- h must be in scope
+//     return <div id="foo">bar</div>
+//   }
+// })
 export default {
   data () {
     return {
+      testV: '1'
     };
   },
-
   components: {},
 
   computed: {},
@@ -17,7 +28,6 @@ export default {
   mounted () {
     this.getArticleDetail()
   },
-
   methods: {
     async  getArticleDetail () {
       try {

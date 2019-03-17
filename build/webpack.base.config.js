@@ -37,7 +37,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(jpg|png|gif|svg|jpeg)$/,
+        test: /\.(jpg|png|gif|svg|jpeg|woff|svg|eot|ttf)$/,  // 各种字体、图片格式
         use: [
           {
             loader: 'url-loader',
