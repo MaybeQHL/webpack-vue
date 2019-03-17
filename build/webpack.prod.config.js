@@ -12,7 +12,7 @@ module.exports = webpackMerge(webpackBaseConfig, {
     filename: 'js/[name].[hash].js', //输出文件的文件名
     chunkFilename: 'js/[name].[hash].chunk.js',
     path: path.join(__dirname, '../dist'), // 输出文件所在目录
-    publicPath: '/webpack/'
+    publicPath: '/webpack/' // 服务器静态资源目录
   },
   plugins: [
     // 打包之前使用这个插件尝试清除dist目录下的文件

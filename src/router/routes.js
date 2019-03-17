@@ -11,11 +11,18 @@ const routes = [
     path: '/main',
     name: 'main',
     component: main,
-    children: [{
-      path: 'sub',
-      name: 'sub',
-      component: () => import(/* webpackChunkName: "group-foo" */ '@/views/main/pages/sub.vue')
-    }]
+    children:
+      [{
+        path: 'sub',
+        name: 'sub',
+        component: () => import(/* webpackChunkName: "group-foo" */ '@/views/main/pages/sub.vue')
+      },
+      {
+        path: 'res',
+        name: 'res',
+        component: () => import(/* webpackChunkName: "group-foo" */ '@/views/main/pages/ResDemo.vue')
+      }
+      ]
   }
 ]
 export default routes
