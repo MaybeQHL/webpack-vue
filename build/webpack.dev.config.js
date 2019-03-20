@@ -14,8 +14,9 @@ module.exports = webpackMerge(webpackBaseConfig, {
   },
   devServer: {
     // contentBase: path.join(__dirname, "dist"),
-    port: 58773,
-    //  host:'127.0.0.1'  0.0.0.0 可以让外网进行访问 默认localhost 
+    port: 58773,   // 58773   微信公众号 8000
+    // host: '0.0.0.0', // 0.0.0.0 可以让外网进行访问 默认localhost 
+    // disableHostCheck: true,
     proxy: {
       '/test/*': {
         target: 'https://xxx.com',

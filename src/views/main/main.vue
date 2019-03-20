@@ -29,6 +29,7 @@
 
 <script>
 import SideMenu from './compoents/SideMenu.vue'
+import wx from 'weixin-js-sdk';
 export default {
   data () {
     return {
@@ -45,7 +46,38 @@ export default {
   mounted () {
 
   },
-
+  created () {
+    this.$api.wxApi.getConfig();
+    wx.checkJsApi({
+      jsApiList: [
+        'getNetworkType',
+        'previewImage'
+      ],
+      success: function (res) {
+        console.log('微信验证');
+        console.log(JSON.stringify(res));
+      },
+      fail: function (res) {
+        console.log(JSON.stringify(res));
+      }
+    });
+    // wx.scanQRCode({
+    //   needResult: 1,
+    //   desc: 'scanQRCode desc',
+    //   success: function (res) {
+    //     console.log(JSON.stringify(res));
+    //   }
+    // });
+    // wx.getLocation({
+    //   success: function (res) {
+    //     console.log('地理位置');
+    //     console.log(JSON.stringify(res));
+    //   },
+    //   cancel: function (res) {
+    //     console.log('用户拒绝授权获取地理位置');
+    //   }
+    // });
+  },
   methods: {
 
   }
