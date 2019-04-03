@@ -23,6 +23,11 @@ const routes = [
         component: () => import(/* webpackChunkName: "group-foo" */ '@/views/main/pages/ResDemo.vue')
       }
       ]
+  },
+  {
+    path: '/reply',
+    name: 'reply',
+    component: () => import(/* webpackChunkName: "group-foo" */ '@/views/main/pages/reply.vue')
   }
 ]
 export default routes
