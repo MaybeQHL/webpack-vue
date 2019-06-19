@@ -1,16 +1,21 @@
-const path = require('path'); // node.js 中的基本包，用于处理路径
+// const path = require('path'); // node.js 中的基本包，用于处理路径
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin'); // 在webpack.config.js下引入html-webpack-plugin
+const utils = require('./utils')
 
 module.exports = {
-  entry: path.join(__dirname, '../src/main.js'), // path.jion()将两个参数代表的路径相加组合起来，__dirname代表当前文件所在目录
+  entry: utils.join('../src/main.js'), // path.jion()将两个参数代表的路径相加组合起来，__dirname代表当前文件所在目录
   output: {
-    filename: 'js/bundle.js', //输出文件的文件名
-    path: path.join(__dirname, '../dist') // 输出文件所在目录
+    // filename: '../js/bundle.js', //输出文件的文件名
+    // path: utils.join('dist') // 输出文件所在目录
+    filename: 'js/[name].[hash].js', //输出文件的文件名
+    chunkFilename: 'js/[name].[hash].chunk.js',
+    path: utils.join('../dist'), // 输出文件所在目录
+    publicPath: '/'
   },
   resolve: {
     alias: {
-      '@': path.resolve('src')
+      '@': utils.join('../src')
     }
   },
   module: {
@@ -37,6 +42,15 @@ module.exports = {
         ]
       },
       {
+        test: /\.scss/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'postcss-loader',
+          'sass-loader' // loader 由下往上依次开始处理
+        ]
+      },
+      {
         test: /\.(jpg|png|gif|svg|jpeg|woff|svg|eot|ttf)$/,  // 各种字体、图片格式
         use: [
           {
@@ -51,7 +65,7 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        exclude: path.resolve(__dirname, 'node_modules'),
+        exclude: utils.join('../node_modules'),
         include: __dirname + 'src',
         use: [
           {
@@ -72,7 +86,7 @@ module.exports = {
     new HTMLWebpackPlugin({ // 创建 .html 并自动引入打包后的文件
       template: './public/index.html', // 参照最初创建的 .html 来生成 .html
       inject: true,
-      favicon: path.resolve(__dirname, '../public/favicon.ico'),
+      favicon: utils.join('../public/favicon.ico'),
       title: 'webpack-vue'
     })
   ]

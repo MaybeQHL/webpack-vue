@@ -1,17 +1,18 @@
-const path = require('path'); // node.js 中的基本包，用于处理路径
-const HTMLWebpackPlugin = require('html-webpack-plugin'); // 在webpack.config.js下引入html-webpack-plugin
+// const path = require('path'); // node.js 中的基本包，用于处理路径
+// const HTMLWebpackPlugin = require('html-webpack-plugin'); // 在webpack.config.js下引入html-webpack-plugin
 const webpackBaseConfig = require('./webpack.base.config');
 const webpackMerge = require('webpack-merge');
+const utils = require('./utils')
 
 module.exports = webpackMerge(webpackBaseConfig, {
   mode: 'development',
-  entry: path.join(__dirname, '../src/main.js'), // path.jion()将两个参数代表的路径相加组合起来，__dirname代表当前文件所在目录
-  output: {
-    filename: 'js/[name].[hash].js', //输出文件的文件名
-    chunkFilename: 'js/[name].[hash].chunk.js',
-    path: path.join(__dirname, '../dist'), // 输出文件所在目录
-    publicPath: '/'
-  },
+  // entry: utils.join('../src/main.js'), // path.jion()将两个参数代表的路径相加组合起来，__dirname代表当前文件所在目录
+  // output: {
+  //   filename: 'js/[name].[hash].js', //输出文件的文件名
+  //   chunkFilename: 'js/[name].[hash].chunk.js',
+  //   path: utils.join('../dist'), // 输出文件所在目录
+  //   publicPath: '/'
+  // },
   devServer: {
     // contentBase: path.join(__dirname, "dist"),
     port: 58773,   // 58773   微信公众号 8000
@@ -30,11 +31,5 @@ module.exports = webpackMerge(webpackBaseConfig, {
   },
   devtool: 'cheap-module-eval-source-map', // devtool由webpack直接提高，将打包后的文件中的错误映射到最初对应的文件中，便于调试
   plugins: [
-    // 在webpack.config.js下引入html-webpack-plugin
-    // new HTMLWebpackPlugin({ // 创建 .html 并自动引入打包后的文件
-    //   template: './public/index.html', // 参照最初创建的 .html 来生成 .html
-    //   inject: true,
-    //   title: 'webpack-vue-dev'
-    // })
   ]
 })

@@ -1,10 +1,11 @@
 <template>
-  <div class="box">
-    <router-view class="a"></router-view>
+  <div class="app">
+    <router-view></router-view>
   </div>
 </template>
  
 <script>
+
 export default {
   data () {
     return {
@@ -26,7 +27,7 @@ html,
 body {
   &:extend(.box);
 }
-.box {
-  height: 100%;
+.app {
+  height: 100vh;
 }
 </style>

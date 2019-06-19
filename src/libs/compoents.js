@@ -1,10 +1,9 @@
-import VMDemo from '@/compoents/VMDemo/VMDemo.vue'
-import RenderTest from '@/compoents/RenderTest/RenderTest.vue'
+// import VMDemo from '@/compoents/VMDemo/VMDemo.vue'
+
 
 /**
  * 全局组件的注册
  */
 export default (Vue) => {
-  Vue.component('vm-demo', VMDemo)
-  Vue.component('RenderTest', RenderTest)
+  // Vue.component('name', component)
 }
