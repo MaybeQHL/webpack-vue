@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <h1 class="title">Webpack4 - vue - template </h1>
+    <h2 class="title">Webpack4 - vue - template </h2>
   </div>
 </template>
 
@@ -41,9 +41,12 @@ export default {
   width: 100%;
   display: flex;
   .title {
-    font-size: 50px;
+    font-size: 20px;
     margin: 0px auto;
     color: $themeColor;
+    display: inline-block;
+    height: 60px;
+    border: 1px solid red;
   }
 }
 </style>

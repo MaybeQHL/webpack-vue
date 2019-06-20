@@ -33,7 +33,7 @@ module.exports = {
         use: [
           'style-loader', // 为 css 创建 style 标签并置入其中插入页面
           'css-loader', // 处理 css
-          'postcss-loader', // 浏览器兼容问题
+          'postcss-loader', // css预配置
         ]
       },
       {
