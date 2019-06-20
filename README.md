@@ -18,6 +18,9 @@ node v10.15.\*
 
 yarn v1.13.\*
 
+vue 2.\*
+webpack 4
+
 # Remark
 
 vue
