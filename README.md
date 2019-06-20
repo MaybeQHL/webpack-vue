@@ -1,10 +1,10 @@
-# webpack-vue
+# Webpack-Vue
 
 webpack4 vue 脚手架模板
 
-<h1>author:maybe</h1>
+By：maybe
 
-# install
+# Install
 
 yarn
 
@@ -12,13 +12,13 @@ yarn run dev
 
 yarn run build
 
-# version
+# Version
 
 node v10.15.\*
 
 yarn v1.13.\*
 
-# detail
+# Remark
 
 vue
 vuex
