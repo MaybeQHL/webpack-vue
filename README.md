@@ -27,4 +27,4 @@ axios
 sass
 
 默认提供图片的 base64 转换、sass 全局变量、混合等配置、css 样式兼容性前缀、
-import 按需加载、
+import 按需加载、es6 及以上转 es5 .....
