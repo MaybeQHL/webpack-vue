@@ -6,16 +6,18 @@ import Vue from 'vue';
 import App from './App.vue';
 import router from './router'
 import store from './store'
+
+// 导入全局CSS
 import '@/assets/common/reset.css'
+
+
+// 导入注册全局组件、指令、过滤器
 import compoents from '@/libs/compoents'
 import filters from '@/libs/filters'
-// import elementUI from 'element-ui'
-// import 'element-ui/lib/theme-chalk/index.css'
-import '@/assets/common/common.less'
+import directives from '@/libs/directives'
 Vue.use(compoents)
 Vue.use(filters)
-// Vue.use(elementUI);
-
+Vue.use(directives)
 
 // 创建 vue 实例
 new Vue({

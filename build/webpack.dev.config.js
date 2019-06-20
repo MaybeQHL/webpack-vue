@@ -1,3 +1,7 @@
+/**
+ * webpack config dev
+ */
+
 // const path = require('path'); // node.js 中的基本包，用于处理路径
 // const HTMLWebpackPlugin = require('html-webpack-plugin'); // 在webpack.config.js下引入html-webpack-plugin
 const webpackBaseConfig = require('./webpack.base.config');

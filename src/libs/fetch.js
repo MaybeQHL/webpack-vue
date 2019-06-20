@@ -1,6 +1,7 @@
 /**
   * axios封装
   * 请求拦截、响应拦截、错误统一处理
+  * @author Maybe
   */
 import axios from 'axios';
 import router from '../router';
@@ -11,13 +12,13 @@ import store from '../store';
   * 提示函数
   * 禁止点击蒙层、显示一秒后关闭
   */
-// const tip = msg => {
-//   Toast({
-//     message: msg,
-//     duration: 1000,
-//     forbidClick: true
-//   });
-// }
+const tip = msg => {
+  // Toast({
+  //   message: msg,
+  //   duration: 1000,
+  //   forbidClick: true
+  // });
+}
 
 /**
   * 跳转登录页
@@ -48,7 +49,6 @@ const errorHandle = (status, other) => {
     case 403:
       tip('登录过期，请重新登录');
       localStorage.removeItem('token');
-      store.commit('loginSuccess');
       setTimeout(() => {
         toLogin();
       }, 1000);
@@ -80,12 +80,22 @@ instance.interceptors.request.use(
     token && (config.headers.Authorization = token);
     return config;
   },
-  error => Promise.error(error))
+  error => Promise.error(error)
+);
 
 // 响应拦截器
 instance.interceptors.response.use(
   // 请求成功
-  res => res.status === 200 ? Promise.resolve(res) : Promise.reject(res),
+  res => {
+    if (res.status === 200) {
+      return Promise.resolve(res)
+    } else {
+      // 统一错误提示
+      // code.....
+      return Promise.reject(res)
+    }
+    // res.status === 200 ? Promise.resolve(res) : Promise.reject(res)
+  },
   // 请求失败
   error => {
     const { response } = error;

@@ -43,6 +43,7 @@ export default {
   .title {
     font-size: 50px;
     margin: 0px auto;
+    color: $themeColor;
   }
 }
 </style>

@@ -1,3 +1,7 @@
+/**
+ * webpack config base
+ */
+
 // const path = require('path'); // node.js 中的基本包，用于处理路径
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin'); // 在webpack.config.js下引入html-webpack-plugin
@@ -33,21 +37,21 @@ module.exports = {
         ]
       },
       {
-        test: /\.less/,
-        use: [
-          'style-loader',
-          'css-loader',
-          'postcss-loader',
-          'less-loader' // loader 由下往上依次开始处理
-        ]
-      },
-      {
         test: /\.scss/,
         use: [
           'style-loader',
           'css-loader',
           'postcss-loader',
-          'sass-loader' // loader 由下往上依次开始处理
+          'sass-loader',
+          {
+            // 处理sass 全局变量、mixins...
+            loader: 'sass-resources-loader',
+            options: {
+              resources: [
+                utils.resolveResource('common.scss')
+              ]
+            },
+          }
         ]
       },
       {
