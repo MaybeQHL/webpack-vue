@@ -16,5 +16,23 @@ module.exports = {
   },
   resolveResource (name) {
     return path.resolve(__dirname, '../src/assets/common/' + name);
+  },
+  /**
+ * 获取局域网ip
+ *  @returns String 当前局域网IP
+ * */
+
+  getLocalIP () {
+    let os = require('os'),
+      iptable = {},
+      ifaces = os.networkInterfaces();
+    for (let dev in ifaces) {
+      ifaces[dev].forEach(function (details, alias) {
+        if (details.family == 'IPv4') {
+          iptable[dev + (alias ? ':' + alias : '')] = details.address;
+        }
+      });
+    }
+    return iptable[Object.keys(iptable)[0]];
   }
 }

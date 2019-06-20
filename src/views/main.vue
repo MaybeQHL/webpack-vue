@@ -1,6 +1,7 @@
 <template>
   <div class="main">
     <h2 class="title">Webpack4 - vue - template </h2>
+    <p> <img src="~@/assets/test.jpg"></p>
   </div>
 </template>
 
@@ -39,14 +40,17 @@ export default {
 .main {
   height: 100%;
   width: 100%;
-  display: flex;
+  text-align: center;
   .title {
     font-size: 20px;
     margin: 0px auto;
     color: $themeColor;
     display: inline-block;
-    height: 60px;
-    border: 1px solid red;
+    height: auto;
+  }
+  img {
+    width: 100px;
+    height: auto;
   }
 }
 </style>
