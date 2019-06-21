@@ -15,7 +15,7 @@ module.exports = {
     filename: 'js/[name].[hash].js', //输出文件的文件名
     chunkFilename: 'js/[name].[hash].chunk.js',
     path: utils.join('../dist'), // 输出文件所在目录
-    publicPath: '/'
+    publicPath: './'
   },
   resolve: {
     alias: {
@@ -37,7 +37,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.scss/,
+        test: /\.scss$/,
         use: [
           'style-loader',
           'css-loader',
@@ -70,17 +70,17 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: utils.join('../node_modules'),
-        include: __dirname + 'src',
+        include: utils.join('../src'),
         use: [
           {
             loader: 'babel-loader',
             // options: {
-            //   presets: ['env'],
+            //   presets: ['es2015'],
             //   plugins: ["@babel/plugin-syntax-dynamic-import"]
             // }
           }
         ]
-      }
+      },
     ]
   },
   plugins: [

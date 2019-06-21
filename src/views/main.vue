@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import { createScript, deepClone } from '@/libs/tools'
 export default {
   props: {
 
@@ -25,7 +26,6 @@ export default {
 
   },
   mounted () {
-
   },
   watch: {
 

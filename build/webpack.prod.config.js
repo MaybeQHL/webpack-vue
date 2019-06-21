@@ -8,10 +8,11 @@ const webpackBaseConfig = require('./webpack.base.config');
 const webpackMerge = require('webpack-merge');
 const cleanWebpackPlugin = require('clean-webpack-plugin'); // 用于清除目录内容
 var CompressionPlugin = require("compression-webpack-plugin"); // gzip压缩
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const utils = require('./utils')
 
 module.exports = webpackMerge(webpackBaseConfig, {
-  mode: 'production',
+  mode: 'production', // 设置成发布模式
   // entry: utils.join('../src/main.js'), // path.jion()将两个参数代表的路径相加组合起来，__dirname代表当前文件所在目录
   // output: {
   //   filename: 'js/[name].[hash].js', //输出文件的文件名

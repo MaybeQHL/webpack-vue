@@ -9,7 +9,7 @@ const webpackMerge = require('webpack-merge');
 const utils = require('./utils')
 
 module.exports = webpackMerge(webpackBaseConfig, {
-  mode: 'development',
+  mode: 'development', // 设置成开发模式
   // entry: utils.join('../src/main.js'), // path.jion()将两个参数代表的路径相加组合起来，__dirname代表当前文件所在目录
   // output: {
   //   filename: 'js/[name].[hash].js', //输出文件的文件名

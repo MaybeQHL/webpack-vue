@@ -10,7 +10,7 @@ import store from './store'
 // 导入全局CSS
 import '@/assets/common/reset.css'
 
-// console.log(process.NODE.env);
+// console.log(process.env.NODE_ENV);
 // 导入注册全局组件、指令、过滤器
 import compoents from '@/libs/compoents'
 import filters from '@/libs/filters'

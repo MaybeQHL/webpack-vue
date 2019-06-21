@@ -3,7 +3,7 @@
     [
       "@babel/preset-env",
       {
-        "modules": "commonjs",
+        // "modules": false, // 启用将ES6模块语法转换为另一种模块类型
         "targets": {
           "browsers": ["> 1%", "last 2 versions", "not ie <= 8"],
           "node": "current"
@@ -11,5 +11,5 @@
       }
     ]
   ],
-  "plugins": ["@babel/plugin-syntax-dynamic-import"]
+  "plugins": [["@babel/plugin-syntax-dynamic-import"]]
 }
